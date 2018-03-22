@@ -7,7 +7,6 @@ import imagescraper
 
 locale.setlocale(locale.LC_ALL, 'C')
 
-
 # Gauge Panel Class to display progress of editing images #
 class StatusGauge(wx.Panel):
     def __init__(self, parent, TotalItems, Operation):

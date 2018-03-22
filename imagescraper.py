@@ -119,14 +119,14 @@ def rename_file(file, newfile):
 def error_check(link, path):
     user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
     headers = {'User-Agent': user_agent,}
-    req = urllib.request.Request(link, None, headers)
     if len(path) < 1:
         return (False, 'Folder was not Selected')
     if 'http://' not in link and 'https://' not in link:
         return (False, 'Not a Valid Link (ex: http://www.youtube.com or https://www.youtube.com)')
     try:
+        req = urllib.request.Request(link, None, headers)
         f = urllib.request.urlopen(req).read().decode()
-    except UnicodeDecodeError:
+    except UnicodeDecodeError or ValueError:
         return (False, 'Link Must be HTML')
     except urllib.request.HTTPError as error:
         return (False, 'HTTP Error: '+str(error.code))
