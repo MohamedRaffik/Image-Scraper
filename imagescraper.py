@@ -147,7 +147,6 @@ def download_image(link):
     headers = {'User-Agent': user_agent,}
     req = urllib.request.Request(link, None, headers)
 
-    count = 0
     site = urllib.request.urlopen(req).read().decode()
     parser = Parser()
     images = []

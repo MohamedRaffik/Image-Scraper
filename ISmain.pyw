@@ -372,7 +372,7 @@ class mainFrame(wx.Frame):
             try:
                 req = urllib.request.Request(Link[0], None, headers)
                 Data = urllib.request.urlopen(req).read()
-                File = os.open(ImageFile, os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_BINARY)
+                File = os.open(ImageFile, os.O_WRONLY|os.O_CREAT|os.O_EXCL)
                 os.write(File, Data)
                 os.close(File)
                 ImageFileNames.append(ImageFile)
