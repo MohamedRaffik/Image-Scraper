@@ -14,7 +14,7 @@ def ValidURL(url: str) -> bool:
 
 def getImages(url: str) -> list:
     html = requests.get(url, headers={'User-Agent': 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0'}).text
-    image_extensions = ['.jpg', '.ico', 'png', '.jpeg']
+    image_extensions = ['.jpg', '.ico', 'png', '.jpeg', '.gif']
     links = [ 
         { 'link': element.replace('\\', ''), 'extension': [ img for img in image_extensions if img in element ][0] } 
         for element in html.split('"')
